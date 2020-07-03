@@ -2,6 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!--
+        spring-boot-dependencies（spring-boot-dependencies是Spring Boot的版本仲裁中心，管理所有依赖的版本号，继承该项目之后，若要使用在该项目管理中的jar则可以省略pom文件中引用坐标的版本号(若使用仲裁中心管理外的依赖则需要写明版本号)。）
+                    ^
+                    |
+        spring-boot-starter-parent
+                    ^
+                    |
+                  demo
+    -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -21,6 +30,13 @@
     </properties>
 
     <dependencies>
+        <!--
+            这是SpringBoot的场景启动器，作用是帮我们导入web模块正常运行所需要的组件。
+            SpringBoot将所有的功能场景抽出来做成一个个的starters（启动器），我们只需
+            要在项目中引用这些starters，就可以使用该场景，比如我们需要使用redis则只主
+            要引入spring-boot-starter-data-redis的pom依赖即可，它会自动将所有
+            依赖的jar导入进来，不需要我们在手动一个个的导入。
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -68,8 +84,18 @@
             <scope>test</scope>
         </dependency>
 
+        <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
+    <!--
+        部署Spring Boot项目时我们不需要再把项目打成一个WAR包，只需要导入一个Maven的插件
+        将项目打成一个可执行的jar包即可。这个插件可以将应用打包成一个可执行的jar包
+    -->
     <build>
         <plugins>
             <plugin>
