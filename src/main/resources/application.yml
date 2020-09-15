@@ -5,8 +5,8 @@ mybatis:
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/test
+    password: 1234
+    url: jdbc:mysql://127.0.0.1:3306/mysql-test?serverTimezone=CST
     driver-class-name: com.mysql.jdbc.Driver
 #让控制台打印自动配置报告
-debug: true
+#debug: true
