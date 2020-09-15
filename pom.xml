@@ -113,6 +113,11 @@
             <version>3.11-beta2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.36</version>
+        </dependency>
     </dependencies>
 
     <!--
