@@ -188,6 +188,17 @@ public class TablesConstant {
         arkSystem.add(new Tuple("ark_variable_test_record"    , "变量测试记录表"               ));
         systemTalbeMap.put("变量中心", arkSystem);
 
+
+        List<Tuple> pSystem = new ArrayList<>();
+        pSystem.add(new Tuple("pandora_source"   ,                 "计算引擎数据源表"                    ));
+        pSystem.add(new Tuple("pandora_source_detail"   ,                 "计算引擎数据源详情表"                    ));
+        pSystem.add(new Tuple("pandora_source_t"   ,                 "计算引擎数据源表"                    ));
+        pSystem.add(new Tuple("pandora_task"   ,                 "计算引擎任务表"                    ));
+        pSystem.add(new Tuple("pandora_task_t"   ,                 "计算引擎任务表"                    ));
+        systemTalbeMap.put("实时计算", pSystem);
+
+
+
         List<Tuple> gatewaySystem = new ArrayList<>();
         gatewaySystem.add(new Tuple("gateway_api"   ,                 "API表"                    ));
         gatewaySystem.add(new Tuple("gateway_api_application"   ,                 "API应用授权表"                    ));
